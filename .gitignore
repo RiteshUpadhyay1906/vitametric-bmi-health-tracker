@@ -1,0 +1,9 @@
+# Local data and Python build artefacts
+ps capstone dataset.xlsx
+__pycache__/
+*.py[cod]
+.venv/
+
+# Editor and operating-system files
+.DS_Store
+Thumbs.db

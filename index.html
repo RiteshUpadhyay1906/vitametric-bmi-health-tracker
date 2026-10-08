@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#071e22" />
+    <title>VitaMetric | BMI intelligence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="tracker.css" />
+  </head>
+  <body>
+    <div class="page-glow glow-one"></div><div class="page-glow glow-two"></div>
+    <main>
+      <nav><a class="brand" href="#top"><span class="brand-mark">v</span>VitaMetric</a><div class="nav-status"><span></span> Model dashboard</div></nav>
+      <section class="hero" id="top">
+        <div class="eyebrow">Personal health companion <i></i> Exact BMI calculation</div>
+        <h1>Make your everyday<br /><em>wellness</em> measurable.</h1>
+        <p>Calculate BMI precisely from height and weight, then add clinical context such as age, sex, waist and ethnicity for a more useful risk screen.</p>
+        <div class="hero-meta"><div><b>Exact</b><small>BMI formula</small></div><div><b>4+</b><small>context signals</small></div><div><b>Private</b><small>saved on this device</small></div></div>
+      </section>
+
+      <section class="workspace" aria-label="BMI prediction tool">
+        <div class="input-panel">
+          <div class="panel-heading"><div><span class="section-kicker">01 — your measurements</span><h2>Start with the facts.</h2></div><button class="reset" id="resetButton">Reset</button></div>
+          <form id="predictionForm">
+            <div class="unit-toggle" role="group" aria-label="Measurement system"><button class="unit active" data-unit="metric" type="button">Metric</button><button class="unit" data-unit="imperial" type="button">Imperial</button></div>
+            <div class="measure-grid"><label class="measure"><span>Height</span><div><input id="height" type="number" min="50" max="250" step="0.1" value="170" required /><b id="heightUnit">cm</b></div></label><label class="measure"><span>Weight</span><div><input id="weight" type="number" min="10" max="400" step="0.1" value="69.7" required /><b id="weightUnit">kg</b></div></label></div>
+            <div class="context-grid"><label><span>Age</span><input id="age" type="number" min="2" max="120" value="25" required /></label><label><span>Sex at birth</span><select id="sex"><option value="female">Female</option><option value="male">Male</option><option value="unspecified">Prefer not to say</option></select></label><label><span>Ethnic-risk guidance</span><select id="ethnicity"><option value="standard">Standard adult thresholds</option><option value="lower">Lower-threshold guidance</option></select></label><label><span>Waist (optional)</span><div class="with-unit"><input id="waist" type="number" min="30" max="200" step="0.1" placeholder="e.g. 82" /><b>cm</b></div></label></div>
+            <label class="date-field"><span>Record date</span><input id="recordDate" type="date" required /></label>
+            <div class="diet-note"><span>How it works</span><p>BMI always uses height and weight. Context fields guide interpretation only; they do not alter the BMI formula.</p></div>
+            <button class="predict" type="submit">Calculate & save reading <span>↗</span></button>
+          </form>
+        </div>
+
+        <div class="result-panel">
+          <div class="panel-heading"><div><span class="section-kicker">02 — your result</span><h2>Your BMI reading.</h2></div><span class="live-pill"><i></i> Exact</span></div>
+          <div class="result-main"><div class="gauge" id="gauge"><div class="gauge-inner"><span>Your BMI</span><strong id="bmiValue">24.1</strong><small>kg/m²</small></div></div><div class="result-copy"><span class="category" id="category">Healthy range</span><p id="interpretation">Your profile sits within the standard healthy BMI interval.</p><div class="range-scale"><span>18.5</span><span>25</span><span>30</span></div><div class="range-bar"><i id="rangePointer"></i></div><div class="range-labels"><span>Under</span><span>Healthy</span><span>Over</span><span>Obese</span></div></div></div>
+          <div class="context-result"><div class="context-heading"><span>Contextual risk screen</span><b id="activeGuide">Standard thresholds</b></div><p id="contextResult">Standard adult BMI categories apply from age 20. Add context to personalise the interpretation.</p><div id="contextFacts" class="context-facts"></div><small id="contextSource">BMI is a screening tool, not a diagnosis.</small></div>
+          <div class="impact history"><div class="impact-header"><span>Recent readings</span><button id="clearHistory" type="button">Clear history</button></div><div id="historyList" class="history-list"><p class="empty-history">Your saved readings will appear here.</p></div></div>
+        </div>
+      </section>
+
+      <section class="method"><div><span class="section-kicker">The method</span><h2>Transparent by design.</h2></div><div class="method-grid"><article><span>Formula</span><b>kg / m²</b><p>BMI is calculated from measured height and weight only.</p></article><article><span>Interpretation</span><b>More than one number</b><p>Age, sex at birth, waist and ethnic-risk guidance can shape the risk conversation.</p></article><article><span>Privacy</span><b>Device only</b><p>Your history stays in browser storage; no measurements are sent anywhere.</p></article></div></section>
+      <footer><span>VitaMetric · Built for mindful, not medical, decisions.</span><span>For adults. BMI is a screening measure, not a diagnosis.</span></footer>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
